@@ -17,15 +17,15 @@ public class UIManager {
         return instance;
     }
     
-    boolean isHovered(int x, int y, int width, int height) {
+    public boolean isHovered(int x, int y, int radius) {
         mx = Gdx.input.getX();
         my = Gdx.graphics.getHeight() - Gdx.input.getY();
 
-        return x <= mx && x + width >= mx && y <= my && y + height >= my;
+        return x <= mx && x + radius >= mx && y <= my && y + radius >= my;
     }
 
-    boolean isClicked(int x, int y, int width, int height) {
+    public boolean isClicked(int x, int y, int radius) {
 
-        return isHovered(x, y, width, height) && Gdx.input.isButtonJustPressed(Input.Buttons.LEFT);
+        return isHovered(x, y, radius) && Gdx.input.isButtonJustPressed(Input.Buttons.LEFT);
     }
 }
