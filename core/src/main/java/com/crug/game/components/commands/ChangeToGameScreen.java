@@ -1,4 +1,4 @@
-package com.crug.game.components.ui.commands;
+package com.crug.game.components.commands;
 
 import com.crug.game.components.interfaces.ICommand;
 import com.crug.game.components.interfaces.INavigable;
@@ -13,8 +13,7 @@ public class ChangeToGameScreen implements ICommand {
     }
 
     @Override
-    public void execute() {
-        System.out.println("code executed");
+    public void execute() {        
         navigation.changeScreen(ScreenType.GAME);
     }
 }

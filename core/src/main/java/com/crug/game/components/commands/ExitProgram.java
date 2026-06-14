@@ -1,4 +1,4 @@
-package com.crug.game.components.ui.commands;
+package com.crug.game.components.commands;
 
 import com.badlogic.gdx.Gdx;
 import com.crug.game.components.interfaces.ICommand;

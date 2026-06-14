@@ -1,6 +1,7 @@
 package com.crug.game.components.screen;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -19,8 +20,8 @@ public class ScreenManager implements INavigable {
         screens = new HashMap<>();    
 
         // add the screens the map
-        screens.put(ScreenType.MAIN_MENU, new MainMenu());
-        screens.put(ScreenType.GAME, new GameScreen());
+        screens.put(ScreenType.MAIN_MENU, new MainMenu(this));
+        screens.put(ScreenType.GAME, new GameScreen(this));
         
         // set first screen
         game.setScreen(screens.get(ScreenType.MAIN_MENU));
@@ -29,5 +30,11 @@ public class ScreenManager implements INavigable {
     @Override
     public void changeScreen(ScreenType screen) {
         game.setScreen(screens.get(screen));
+    }
+
+    public void dispose() {
+        for (Map.Entry<ScreenType, Screen> entry : screens.entrySet()) {
+            entry.getValue().dispose();
+        }
     }
 }
